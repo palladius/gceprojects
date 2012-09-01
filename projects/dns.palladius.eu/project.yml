@@ -4,3 +4,4 @@ project:
  type: dns
  source: here
  destination: denise.google.palladius.eu
+ #init.script: boot.sh
