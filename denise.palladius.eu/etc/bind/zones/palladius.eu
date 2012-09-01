@@ -1,0 +1,242 @@
+$TTL 86400
+@  IN   SOA  ns.palladius.eu. ns1.signal2noise.co.uk.  (
+    2012080100
+    7200             ; refresh (was 86400)
+    3600             ; retry
+    2419200          ; expire        
+    3600             ; ttl (was 60, and 3000 before that)
+)
+
+@                       IN      NS      ns.palladius.eu.
+@                       IN      NS      ns1.signal2noise.co.uk.
+
+palladius.eu.      IN      NS              ns1.palladius.eu.
+palladius.eu.      IN      NS              ns2.palladius.eu.
+;palladius.eu.      IN      MX     10       mta.palladius.eu.
+
+; utilita mie, localhost approssimato all inverosimile :)
+localhost                IN      A      127.0.0.1
+lo                       IN      A      127.0.1.1
+l                        IN      A      127.0.1.1
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; IP PUBBLICI migrero poi il resto in internal...
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+wunderbar   IN        A      188.40.90.151
+wunderbar   IN    SSHFP  1 1 d9c173d6d21794bebb33a5fc36138551da19f701 ; ssh key 'rsa'
+wunderbar   IN    SSHFP  2 1 50fb687426c13e44fe7ddbad903978875346d896 ; ssh key 'dsa'
+
+svn         IN    CNAME      wunderbar
+git         IN    CNAME      wunderbar
+ns          IN        A      188.40.90.186
+ns1         IN        A      188.40.90.186
+ns2         IN        A      213.239.194.114
+;ns1.signal2noise.co.uk has address 213.239.194.114
+;ns1.signal2noise.co.uk has IPv6 address 2001:6f8:900:6c0::2
+; obsoleti ma sempre attuali... viva la coerenza
+vm1                      IN      A       192.168.108.11
+vm2                      IN      A       192.168.108.12
+vm3                      IN      A       192.168.108.13
+vm4                      IN      A       192.168.108.14
+vm5                      IN      A       192.168.108.15
+vm6                      IN      A       192.168.108.16
+vm7                      IN      A       192.168.108.17
+vm8                      IN      A       192.168.108.18
+vm9                      IN      A       192.168.108.19
+vm10                     IN      A       192.168.108.20
+vm11                     IN      A       192.168.108.21
+vm12                     IN      A       192.168.108.22
+vm13                     IN      A       192.168.108.23
+vm14                     IN      A       192.168.108.24
+vm15                     IN      A       192.168.108.25
+vm16                     IN      A       192.168.108.26
+vm17                     IN      A       192.168.108.27
+vm18                     IN      A       192.168.108.28
+vm19                     IN      A       192.168.108.29
+vm25                     IN      A       192.168.108.35
+vm32                     IN      A       192.168.108.42
+vm42                     IN      A       192.168.108.52
+
+; vm15 internal
+; metto l'ip onterno come failover... e' una maialata all'esterno ma all'interno dovrebbe fluire almeno...
+;mail.palladius.eu.         IN      MX     10       mta2.palladius.eu.
+;mail.palladius.eu.         IN      MX     20       mail2.palladius.eu.
+;internal.palladius.eu.     IN      MX     10       mta2.palladius.eu.
+;www.palladius.eu.          IN      MX     10       mail2.palladius.eu.
+
+; IP pubblici di Hetzner
+ippub0  	                 IN	A	188.40.90.151
+ippub1  	                 IN	A	188.40.90.184
+ippub2  	                 IN	A	188.40.90.185
+ippub3  	                 IN	A	188.40.90.186
+
+; ippub1, www.palladius.eu visto da esterno
+goliardia	                 IN  A      188.40.90.184
+mail     	                 IN  A      188.40.90.184
+imap     	                 IN  A      188.40.90.184
+pop3     	                 IN  A      188.40.90.184
+pop      	                 IN  A      188.40.90.184
+smtp     	                 IN  A      188.40.90.184
+mx       	                 IN  A      188.40.90.184
+mta      	                 IN  A      188.40.90.184
+; ippub3=services                     
+www                        IN  A      188.40.90.186
+www2                       IN  A      188.40.90.186
+www3                       IN  A      188.40.90.186
+www4                       IN  A      188.40.90.186
+pub3                       IN  A      188.40.90.186
+jabber                     IN  A      188.40.90.186
+rt                         IN  A      188.40.90.186
+nagios                     IN  CNAME  pub3
+nachos                     IN  CNAME  pub3
+services                   IN  CNAME  pub3
+ldap                       IN  CNAME  pub3
+www6                       IN  CNAME  pub3
+
+
+; DEV dall esterno praticamente solo x me
+dev              IN      A       188.40.90.185
+devpub           IN      A       188.40.90.185
+devext           IN      A       188.40.90.185
+riclife          IN      A       188.40.90.185
+orgie            IN      A       188.40.90.185
+orgie1           IN      CNAME	 orgie
+orgie2           IN      CNAME	 orgie
+clientdb         IN      A       188.40.90.185
+rails1           IN      CNAME	 dev
+rails2           IN      CNAME	 dev
+;*.dev            IN      CNAME	 dev
+;*.orgie          IN      CNAME	 dev
+;*.rails          IN      CNAME	 dev
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; INTERNA...
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+; vm6: dev e svn...
+; vm6 non lho mai usato per svn quindi lo sposto..
+;svn                IN      A       192.168.108.22
+svn1                IN      A       192.168.108.16
+svn2int             IN      A       192.168.108.22
+
+; vm7: dev 
+goldy              IN      A       192.168.108.17
+
+; VM08: www.goliardia.it
+vm08             IN      A       192.168.108.18
+vm8              IN      A       192.168.108.18
+goliardia        IN      A       192.168.108.18
+;*.goliardia      IN      A       192.168.108.18
+;www-int          IN      CNAME   vm08
+
+
+; VM9: nachos,ldap,...
+vm9              IN      A       192.168.108.19
+vm09             IN      A       192.168.108.19
+nagios-int       IN      A       192.168.108.19
+ldap-int         IN      A       192.168.108.19
+dns              IN      A       192.168.108.19
+
+; VM10: openvpn,sec in generale, magari boh,...
+vm10              IN     A       192.168.108.20
+openvpn           IN     A       192.168.108.20
+
+; VM12: 32bit hamachi e 40GB di disco per backup...
+vm12                  IN     A       192.168.108.22
+
+; VM15 (futura) posta exim??? ma perche no dico io
+mta2             IN      A       192.168.108.25
+mx               IN      A       192.168.108.25
+quindici         IN      A       192.168.108.25
+posta            IN      A       192.168.108.25
+rt3              IN      A       192.168.108.25
+ticketing        IN      A       192.168.108.25
+mail2            IN      A       192.168.108.25
+
+; VM32 (cagata per prove dns)
+hostmaster       IN      A       192.168.108.42
+admin            IN      A       192.168.108.42
+example          IN      A       192.168.108.42
+trentadue        IN      A       192.168.108.42
+mx               IN      A       192.168.108.25
+quindici         IN      A       192.168.108.25
+posta            IN      A       192.168.108.25
+
+kermit          IN      CNAME   kermit.hetzner.palladius.eu.
+puppet          IN      CNAME   puppet.hetzner.palladius.eu.
+gheso           IN      CNAME   gheso.hetzner.palladius.eu.
+dirvish         IN      CNAME   gheso.hetzner.palladius.eu.
+hamacho         IN      CNAME   gheso.hetzner.palladius.eu.
+backup          IN      CNAME   gheso.hetzner.palladius.eu.
+nagios2         IN      CNAME   gheso.hetzner.palladius.eu.
+svncarlesso-hetzner   IN     A       192.168.108.22
+svncarlesso-gheso     IN     A       192.168.108.22
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; esterni ma utili
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+svncarlesso-old  IN      A      193.1.228.252
+svncarlesso      IN      A      188.40.90.151
+; eduroam for my iphone
+iphone3          IN      A      193.1.228.144
+iphone3          IN      AAAA   2001:770:f0:10:223:6cff:fe60:a35b
+iphone           IN      CNAME  iphone3.palladius.eu.
+; 1 1 RSA, 1 2 DSA devi fare il SHA sum della chiave qui..
+eccentrica       IN      A      193.1.228.215
+gallumbits       IN      A      193.1.228.160
+gallumbits       IN      AAAA   2001:770:f0:10:212:3fff:fe66:f6d5
+gallumbits       IN      SSHFP  1 1 484ae0ee6468c32d8504d47d3b23deb560f60325 ; ssh key 'rsa'
+gallumbits       IN      SSHFP  2 1 0f1fb9a0f2da708e84e1d1ec738b74ab5e195610 ; ssh key 'dsa'
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; hamachi andrebbe in zona a se ma non va per ora lo metto qui
+; OBSOLETE -> migrated to .hamachi.palladius.eu ...
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+hvm09            IN      CNAME   vm9.hamachi.palladius.eu.
+hgheso           IN      CNAME   gheso.hamachi.palladius.eu.
+hvm06            IN      CNAME   vm6.hamachi.palladius.eu.
+hvm12            IN      CNAME   vm12.hamachi.palladius.eu.
+hpappardell      IN      CNAME   pappardell.hamachi.palladius.eu.
+hbidello         IN      CNAME   bidello.hamachi.palladius.eu.
+hblackrock       IN      CNAME   blackrock.hamachi.palladius.eu.
+hblackrock2      IN      CNAME   blackrock2.hamachi.palladius.eu.
+hmasagno         IN      CNAME   masagno.hamachi.palladius.eu.
+hhansel          IN      CNAME   hansel.hamachi.palladius.eu.
+hhansel2         IN      CNAME   hansel2.hamachi.palladius.eu.
+hioria           IN      CNAME   ioria.hamachi.palladius.eu.
+hnaucrate        IN      CNAME   naucrate.hamachi.palladius.eu.
+hricfinestre     IN      CNAME   ricfinestre.hamachi.palladius.eu.
+
+;;;;;;;;;;;;;;;;;
+;; Dell stuff
+;;;;;;;;;;;;;;;;;
+salsa     IN      CNAME   salsa.dell.palladius.eu.
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; distilleria
+; hansel è sshacquabile dall'esterno porta 22 ora.. con o senza hamachi tanto pwd è difficile
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+naucrate        IN      CNAME   naucrate.dundrum.palladius.eu.
+nassau          IN      CNAME   nassau.dundrum.palladius.eu.
+hansel2         IN      CNAME   hansel.dundrum.palladius.eu.
+blackrock       IN      CNAME   blackrock.dundrum.palladius.eu.
+blackrock2      IN      CNAME   blackrock2.dundrum.palladius.eu.
+hansel          IN      CNAME   palladius.dyndns.org.
+dundrummery     IN      CNAME   palladius.dyndns.org.
+dundrum         IN      CNAME   palladius.dyndns.org.
+esculapio       IN      CNAME   esculapio.distillery.palladius.eu.
+carmela         IN      CNAME   carmela.distillery.palladius.eu.
+ciscolo         IN      CNAME   ciscolo.distillery.palladius.eu.
+upc             IN      CNAME   ciscolo.distillery.palladius.eu.
+ntl             IN      CNAME   ciscolo.distillery.palladius.eu.
+; leone
+ioria           IN      CNAME   ioria.leone.palladius.eu.
+bidello         IN      CNAME   bidello.leone.palladius.eu.
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; INTERNET
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+ciscocom        IN      A       72.163.4.161
+cisco           IN      A       72.163.4.161
+google          IN      A       74.125.232.145

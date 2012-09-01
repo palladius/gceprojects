@@ -1,0 +1,6 @@
+project:
+ name: denise.palladius.eu
+ description: my personal public DNS
+ type: dns
+ source: here
+ destination: denise.google.psalladius.eu

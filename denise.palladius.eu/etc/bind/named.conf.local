@@ -1,0 +1,63 @@
+//
+// Do any local configuration here
+//
+
+zone "palladius.eu" {
+        type master;
+        file "/etc/bind/zones/palladius.eu";
+        };
+
+# Si chiamava anche INTERNAL ma ho tolto duplicazione..
+zone "hetzner.palladius.eu" {
+        type master;
+        file "/etc/bind/zones/hetzner.palladius.eu";
+};
+
+zone "hamachi.palladius.eu" {
+        type master;
+        file "/etc/bind/zones/hamachi.palladius.eu";
+        };
+
+zone "heanet.palladius.eu" {
+        type master;
+        file "/etc/bind/zones/heanet.palladius.eu";
+};
+
+zone "dundrum.palladius.eu" {
+        type master;
+        file "/etc/bind/zones/dundrum.palladius.eu";
+};
+################################################################################
+# three aliases for Google: Google, Gugol, G.
+zone "gugol.palladius.eu" {
+        type master;
+        file "/etc/bind/zones/gugol.palladius.eu";
+};
+zone "g.palladius.eu" {
+        type master;
+        file "/etc/bind/zones/gugol.palladius.eu";
+};
+zone "google.palladius.eu" {
+        type master;
+        file "/etc/bind/zones/gugol.palladius.eu";
+};
+################################################################################
+
+# casacarlesso
+zone "argenta.palladius.eu" {
+        type master;
+        file "/etc/bind/zones/argenta.palladius.eu";
+};
+
+# casaleone
+zone "leone.palladius.eu" {
+        type master;
+        file "/etc/bind/zones/leone.palladius.eu";
+};
+
+# This is the zone definition for reverse DNS. replace 0.168.192 with your network address in reverse notation - e.g my network address is 192.168.0
+zone "108.168.192.in-addr.arpa" {
+     type master;
+     file "/etc/bind/zones/rev.108.168.192.in-addr.arpa";
+};
+

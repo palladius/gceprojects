@@ -1,0 +1,22 @@
+$TTL 86400
+@  IN   SOA  ns.palladius.eu. ns1.signal2noise.co.uk.  (
+	2012012700
+	7200 ; refresh (was 86400)
+	3600 ; retry
+	2419200 ; expire        
+	3600 ; ttl (was 60, and 3000 before that)
+)
+
+@                       IN      NS      ns.palladius.eu.
+@                       IN      NS      ns1.signal2noise.co.uk.
+
+; Casa Leone Argenta
+
+; non esiste ma serve per testare il dns..
+; ns1.signal2noise.co.uk
+; iphone3         IN      A       192.168.1.102
+gw                IN      A       192.168.1.1
+hansel            IN      A       192.168.1.101
+; bidello to be changed
+bidello           IN      A       192.168.1.4
+ioria             IN      A       192.168.1.3

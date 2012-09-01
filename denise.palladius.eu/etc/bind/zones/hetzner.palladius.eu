@@ -1,0 +1,125 @@
+$TTL 86400
+@  IN   SOA  ns.palladius.eu. hostmaster.palladius.eu. (
+	2012050100
+	7200 ; refresh (was 86400)
+	3600 ; retry
+ 	2419200 ; expire        
+	3600 ; ttl (was 60, and 3000 before that)
+)
+
+@                       IN      NS      ns.palladius.eu.
+@                       IN      NS      ns1.signal2noise.co.uk.
+
+vm1                      IN      A       192.168.108.11
+vm2                      IN      A       192.168.108.12
+vm3                      IN      A       192.168.108.13
+vm4                      IN      A       192.168.108.14
+ricvm4                   IN      A       192.168.108.14
+qwerty                   IN      A       192.168.108.14
+qwerty2                  IN      A       192.168.108.14
+
+; wunderbar interno...
+wunderbar	               IN      A       192.168.108.1
+
+hetzner.palladius.eu.      IN      NS              ns1.palladius.eu.
+hetzner.palladius.eu.      IN      MX     10       mta.palladius.eu.
+
+
+; vm6: dev e svn2 (inusato! sarebbe SVN.goliardia.it .. )...
+dev              IN      A       192.168.108.16
+devint           IN      A       192.168.108.16
+svn2             IN      A       192.168.108.16
+; vero SVN.palladius.eu (gheso)
+gheso             IN     A       192.168.108.22
+
+; Puppet Master (Kermit the frog)
+kermit             IN      A       192.168.108.27
+
+; vm7: dev e svn...
+vm7                IN      A       192.168.108.17
+goldy              IN      A       192.168.108.17
+nontoccarmi			   IN      A       192.168.108.17
+sette              IN      A       192.168.108.17
+vm07               IN      A       192.168.108.17
+; www.goliardia.it
+www               IN      A       192.168.108.18
+goliardia         IN      A       192.168.108.18
+riclife           IN      A       192.168.108.18
+
+nachos           IN      A       192.168.108.19
+nagios           IN      A       192.168.108.19
+beholder         IN      A       192.168.108.19
+ldap             IN      A       192.168.108.19
+vm9              IN      A       192.168.108.19
+nove             IN      A       192.168.108.19
+dns              IN      A       192.168.108.19
+ns               IN      A       192.168.108.19
+ns1              IN      A       192.168.108.19
+
+; posta exim??? ma perche no dico io
+mta              IN      A       192.168.108.25
+mx               IN      A       192.168.108.25
+quindici         IN      A       192.168.108.25
+posta            IN      A       192.168.108.25
+
+vm1                      IN      A       192.168.108.11
+vm2                      IN      A       192.168.108.12
+vm3                      IN      A       192.168.108.13
+vm4                      IN      A       192.168.108.14
+qwerty                   IN      A       192.168.108.14
+qwerty2                  IN      A       192.168.108.14
+;dev              IN      A       192.168.108.16
+svn              IN      A       192.168.108.16
+vm7                IN      A       192.168.108.17
+vm07               IN      A       192.168.108.17
+goldy              IN      A       192.168.108.17
+nontoccarmi			   IN      A       192.168.108.17
+sette              IN      A       192.168.108.17
+vm07               IN      A       192.168.108.17
+vm08             IN      A       192.168.108.18
+vm8              IN      A       192.168.108.18
+vm008            IN      A       192.168.108.18
+goliardia        IN      A       192.168.108.18
+*.goliardia      IN      A       192.168.108.18
+
+; VM9 - ldap, dns, jabber
+vm9              IN      A       192.168.108.19
+vm09             IN      A       192.168.108.19
+vm009            IN      A       192.168.108.19
+palantir         IN      A       192.168.108.19
+ldap             IN      A       192.168.108.19
+nove             IN      A       192.168.108.19
+dns              IN      A       192.168.108.19
+jabber           IN      A       192.168.108.19
+vm10              IN     A       192.168.108.20
+openvpn           IN     A       192.168.108.20
+ldap              IN     A       192.168.108.20
+openvpn           IN     A       192.168.108.20
+vm12              IN     CNAME   gheso
+dirvish           IN     CNAME   gheso
+git               IN     CNAME   gheso
+hamacho           IN     CNAME   gheso
+backup            IN     CNAME   gheso
+nagios2           IN     CNAME   gheso
+svn1              IN     CNAME   gheso
+
+vm17              IN     CNAME   kermit
+puppet            IN     CNAME   kermit
+puppetmaster      IN     CNAME   kermit
+pupazzo           IN     CNAME   kermit
+
+vm15             IN      A       192.168.108.25
+mta              IN      A       192.168.108.25
+mx               IN      A       192.168.108.25
+quindici         IN      A       192.168.108.25
+posta            IN      A       192.168.108.25
+hostmaster       IN      A       192.168.108.42
+admin            IN      A       192.168.108.42
+example          IN      A       192.168.108.42
+trentadue        IN      A       192.168.108.42
+mx               IN      A       192.168.108.25
+quindici         IN      A       192.168.108.25
+posta            IN      A       192.168.108.25
+
+vm16             IN      A       192.168.108.26
+devbis           IN      A       192.168.108.26

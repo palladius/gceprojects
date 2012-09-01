@@ -1,0 +1,137 @@
+$TTL 86400
+@  IN   SOA  ns.palladius.eu. ns1.signal2noise.co.uk.  (
+                        2012011201
+                        7200             ; refresh (was 86400)
+                        3600             ; retry
+                        2419200          ; expire        
+                        3600             ; ttl (was 60, and 3000 before that)
+                        )
+
+@                       IN      NS      ns.palladius.eu.
+@                       IN      NS      ns1.signal2noise.co.uk.
+
+; utilita mie, localhost approssimato all inverosimile :)
+casa                     IN      A      127.0.1.1
+home                     IN      A      127.0.1.1
+localhost                IN      A      127.0.0.1
+lo                       IN      A      127.0.1.1
+l                        IN      A      127.0.1.1
+loopback                 IN      A      127.0.1.1
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+dundrum                  IN      A       192.168.1.0
+
+; GeoLocation example from RFC 1876
+; pipex.net.                    LOC   52 14 05 N 00 08 50 E 10m
+; http://maps.google.ie/maps?q=balls+lane,+dublin&oe=utf-8&client=firefox-a&ie=UTF8&hq=&hnear=Ball%27s+Ln,+Dublin+7,+County+Dublin&gl=ie&
+; ll=53.349098,-6.272324&spn=0.002485,0.004839&t=h&z=18&iwloc=A
+; 
+; Casa Distillery 53.3491 -6.2723
+; che diventa: 53° 21'  N 6° 16' 20''  W
+dundrum.palladius.eu.   LOC    53 21 N 6 16 20.123 W 10m
+
+; Cisco EPC2425, eth0: e4:48:c7:5d:df:14
+dundrummery1    IN      A       192.168.1.1
+dundrummery10   IN      A       192.168.1.10
+dundrummery11   IN      A       192.168.1.11
+dundrummery12   IN      A       192.168.1.12
+dundrummery13   IN      A       192.168.1.13
+dundrummery14   IN      A       192.168.1.14
+dundrummery15   IN      A       192.168.1.15
+dundrummery16   IN      A       192.168.1.16
+dundrummery17   IN      A       192.168.1.17
+dundrummery18   IN      A       192.168.1.18
+dundrummery19   IN      A       192.168.1.19
+dundrummery40   IN      A       192.168.1.40
+dundrummery41   IN      A       192.168.1.41
+dundrummery42   IN      A       192.168.1.42
+dundrummery43   IN      A       192.168.1.43
+dundrummery250  IN      A       192.168.1.250
+dundrummery251  IN      A       192.168.1.251
+dundrummery252  IN      A       192.168.1.252
+
+; IP STATICI
+ciscolo         IN      CNAME   dundrummery1
+ciscazzo        IN      CNAME   dundrummery1
+naucrate        IN      CNAME   dundrummery250
+nassau          IN      CNAME   dundrummery251
+blackrock-linux IN      CNAME   dundrummery252
+;;;;;;;;;;;;;;;
+;;; VARIABILI DHCP dal x.10 al ???
+;;;;;;;;;;;;;;;
+blackrock-win      IN      CNAME   dundrummery10
+iphone4            IN      CNAME   dundrummery11
+hansel             IN      CNAME   dundrummery12
+bidello            IN      CNAME   dundrummery18
+pappardell         IN      CNAME   dundrummery43
+
+;pappardell-old     IN      CNAME   dundrummery13
+naucrate-win       IN      CNAME   dundrummery17
+;;; /Variabili
+;;;;;;;;;;;;;;;
+
+;;;;;;;; STATICI Name mappings
+iphone4-wif        IN      CNAME   iphone4
+cisco-EPC2425      IN      CNAME   ciscolo
+cisco-eth0         IN      CNAME   ciscolo
+WN7X64-1JQL0Q1     IN      CNAME   pappardell
+naucratexp         IN      CNAME   naucrate-win
+naucrate2          IN      CNAME   naucrate-win
+hansel-wifi        IN      CNAME   hansel
+mac                IN      CNAME   hansel
+blackrock-eth0     IN      CNAME   blackrock-win
+blackrock2         IN      CNAME   blackrock-win
+films              IN      CNAME   blackrock-win
+blackrock          IN      CNAME   blackrock-linux
+blackrockux        IN      CNAME   blackrock-linux
+
+;;;;;;; STATICI Mac Addresses
+00-22-15-dd-6e-a2  IN      CNAME   naucrate
+00-22-41-fc-16-36  IN      CNAME   hansel-wifi
+d0-67-e5-06-43-07  IN      CNAME   blackrock-eth0
+dc-2b-61-b4-e3-5b  IN      CNAME   iphone4-wif
+e4-48-c7-5d-df-14  IN      CNAME   cisco-eth0
+e5-55-f9-12-8e-f4  IN      CNAME   pappardell
+
+
+
+
+
+
+
+
+
+; TODO migra palladius.dyndns a QUI, magari implementalo su naucrate?!?
+dundrum-dyn     IN      CNAME   palladius.dyndns.org.
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;; CNAMES
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; 0:1b:2f:5:f0:92 on en1 ifscope [ethernet]
+router          IN      CNAME   ciscolo
+gw              IN      CNAME   ciscolo
+netgear         IN      CNAME   ciscolo
+WGR614v7        IN      CNAME   ciscolo
+
+; discone da un tera comprato a NYC con la docle Michelle
+buffalo         IN      CNAME   nassau
+upnp-discone    IN      CNAME   nassau
+nas             IN      CNAME   nassau
+LS-WTGL406      IN      CNAME   nassau
+discone-nyc     IN      CNAME   nassau
+
+mac-riccardo    IN      CNAME   hansel
+riccardo        IN      CNAME   hansel
+002241fc1636    IN      CNAME   hansel
+iphone4ric      IN      CNAME   iphone4
+iphoneric       IN      CNAME   iphone4
+iphone          IN      CNAME   iphone4
+dc2b61b4e35b    IN      CNAME   iphone4
+
+; naucrate per ora manhause
+002215dd6ea2    IN      CNAME   naucrate
+
+dundrum.palladius.eu.      IN      MX     10       palladius.dyndns.org.
+dundrum.palladius.eu.      IN      MX     20       mta.distillery.palladius.eu.

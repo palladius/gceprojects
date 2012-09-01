@@ -1,0 +1,31 @@
+$TTL 86400
+@  IN   SOA  ns.palladius.eu. hostmaster.palladius.eu. (
+	2012081500
+	7200 ; refresh (was 86400)
+	3600 ; retry
+ 	2419200 ; expire        
+	3600 ; ttl (was 60, and 3000 before that)
+)
+
+@                IN      NS      ns.palladius.eu.
+@                IN      NS      ns1.signal2noise.co.uk.
+
+nadine           IN      A       108.59.80.172
+bernadine        IN      A       108.59.80.225
+derek            IN      A       192.168.108.12
+gricchione       IN      A       192.168.108.13
+
+;mail                     IN      MX     10       mta.palladius.eu.
+sobenme          IN    A       192.168.108.18
+
+nagios           IN    CNAME   nadine
+nagios2          IN    CNAME   bernadine
+
+test             IN    A       1.2.3.4
+www              IN    A       108.59.83.182
+
+; http://support.google.com/a/bin/answer.py?hl=en&answer=178723
+provaspf         IN    TXT     "v=spf1 include:_spf.google.com ~all"
+_spf             IN    CNAME   provaspf
+provaspf2        IN    TXT     "v=spf1 include:_spf.google.com ipv4:42.6.7.0/24 ~all"
+gugol.palladius.eu. IN TXT     "v=spf1 include:_spf.google.com ipv4:42.6.7.0/24 ~all"
