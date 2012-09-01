@@ -17,3 +17,10 @@ project:
  destination: denise.google.palladius.eu
 private:
   foo: bar
+# TODO implement it
+gcutil:
+  firewall:
+    name: allow-dns
+    allowed: 
+    - tcp:53
+    - udp:53
