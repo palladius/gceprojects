@@ -1,3 +1,6 @@
+gce:
+  project:  biglamp
+  hostname: denise-ng
 project:
  name: denise.palladius.eu
  description: my personal public DNS

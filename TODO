@@ -1,0 +1,3 @@
+
+tests: execute them all by substituting __HOSTNAME__ and __IP__ with the hostname and the ip
+of the newly built machine...
