@@ -9,4 +9,8 @@ gce:
   hostname: tmp-changeme
   network:  default
   project-base: google.com
+  tags:
+  - dflt
+  - 1
+  - 2
 foo: baz

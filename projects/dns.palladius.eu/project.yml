@@ -2,7 +2,11 @@
 gce:
   project:  biglamp
   hostname: denise-ng
-  #network: example-not-standard
+  tags:
+  - dns
+  - prod
+  - 1
+  - 3
 project:
  name: denise.palladius.eu
  description: my personal public DNS

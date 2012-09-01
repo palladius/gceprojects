@@ -5,6 +5,7 @@
 import sys
 import getopt
 import yaml
+import copy
 
 #def load_conffile(project):
 #  f = open('project.yml')
@@ -18,18 +19,24 @@ def yaml_load(filename):
   return tmp
 
 def create_machine(opts):
+  '''This calls gcutil to add an instance :)'''
   print '- Creating a machine. Options: ', opts
   project_base = opts['project-base']
   command = 'gcutil --project_id=%s:%s ' % (opts['project-base'],opts['project'])
   print 'command: ', command
   
-def test_machine(opts):
-  '''Have to retrieve machine info from gcutil.. like gcutil listinstance'''
+def test_machine(conf):
+  '''Have to retrieve machine info from gcutil.. like gcutil listinstance.
+  Hostname is already available in opts'''
+  print 'TODO: Running tests substituting __HOSTNAME__ with: ', conf['hostname']
   pass
 
 # deep merge of configuration trees! Yay!
 def yaml_merge(user, default):
-    if isinstance(user,dict) and isinstance(default,dict):
+    if isinstance(user,list) and isinstance(default,list): # array
+      #return user + default # works but can have duplicates
+      return  list(set(user + default)) # uniq'd
+    if isinstance(user,dict) and isinstance(default,dict): # hash
         for k,v in default.iteritems():
             if k not in user:
                 user[k] = v
@@ -45,10 +52,10 @@ def gce_provision(project):
   #conf.update(dfltConf) # takes dflt conf and overwrites things in common
   # super cool but shallow merge!
   #conf = dict(dfltConf, **projConf) # takes dflt conf and overwrites things in common
-  
+  conf = yaml_merge(copy.deepcopy(projConf),dfltConf)
   print 'dflt: ', dfltConf['gce']
   print 'proj: ', projConf['gce']
-  print 'merge:', yaml_merge(projConf,dfltConf)['gce']
+  print 'merge:', conf['gce']
   #print ' - GCE:  ', conf['gce']
   #print ' - Proj: ', conf['project']
   #print 'Project: ', conf['project']['name']
