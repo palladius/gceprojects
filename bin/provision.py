@@ -36,6 +36,11 @@ def yaml_load(filename):
   f.close()
   return tmp
 
+def usage():
+  print "%s -dhv <PROJECT_NAME>" % sys.argv[0]
+  print " Tip: find project names under projects/"
+  exit(1)
+
 def create_machine(opts):
   '''This calls gcutil to add an instance :)'''
   print '- Creating a machine. Options: ', opts
@@ -104,7 +109,6 @@ def main():
   version = '1.0'
   github_user = 'palladius'
   project = ''
-  print 'argv (before): ', sys.argv
   options, depured_argv = getopt.getopt(sys.argv[1:], 'g:vd', ['githubuser=', 'verbose','debug', ])
   for opt, arg in options:
       if opt in ('-g', '--github-user'):

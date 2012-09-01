@@ -3,10 +3,10 @@
 #############################
 gce:
   project:  biglamp
-  hostname: denise-ng
+  hostname: denise
   tags:
   - dns
-  - prod
+  - prod43
   metadata:
     startup-script: 'projects/dns.palladius.eu/first-boot.sh'
 project:
