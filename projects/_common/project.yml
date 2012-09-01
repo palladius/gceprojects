@@ -1,5 +1,12 @@
-# this contains a YML of default info
+##############################################
+# DO NOT CHANGE
+#
+# This contains a YML of default info. Overwrite this
+# with your peculiar project.yml in your project dir
+##############################################
 gce:
-  project:  jeffsilverman
-  hostname: please-change-me
+  project:  YOUR_PROJECT_IS_MANDATORY
+  hostname: tmp-changeme
   network:  default
+  project-base: google.com
+foo: baz

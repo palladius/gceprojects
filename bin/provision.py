@@ -10,25 +10,50 @@ import yaml
 #  f = open('project.yml')
 #  dataMap = yaml.load(f)
 #  f.close()
-  
+
+def yaml_load(filename):
+  f = open(filename)
+  tmp = yaml.load(f)
+  f.close()
+  return tmp
+
 def create_machine(opts):
-  print 'Creating a machine. Options: ', opts
+  print '- Creating a machine. Options: ', opts
+  project_base = opts['project-base']
+  command = 'gcutil --project_id=%s:%s ' % (opts['project-base'],opts['project'])
+  print 'command: ', command
   
 def test_machine(opts):
-  '''Have to retrieve machine info from gcutil.. like gcutil'''
+  '''Have to retrieve machine info from gcutil.. like gcutil listinstance'''
   pass
+
+# deep merge of configuration trees! Yay!
+def yaml_merge(user, default):
+    if isinstance(user,dict) and isinstance(default,dict):
+        for k,v in default.iteritems():
+            if k not in user:
+                user[k] = v
+            else:
+                user[k] = yaml_merge(user[k],v)
+    return user
   
 def gce_provision(project):
-  print 'Trying to provision project:' , project
-  f = open('projects/%s/project.yml' % project)
-  dataMap = yaml.load(f)
-  f.close()
-  print 'buridone: ', dataMap
-  print ' - GCE:  ', dataMap['gce']
-  print ' - Proj: ', dataMap['project']
-  create_machine(dataMap['gce'])
-  test_machine(dataMap['gce'])
-
+  print '= Provisioning:' , project, '='
+  # loading conf from yaml
+  dfltConf = yaml_load('projects/_common/project.yml')
+  projConf = yaml_load('projects/%s/project.yml' % project)
+  #conf.update(dfltConf) # takes dflt conf and overwrites things in common
+  # super cool but shallow merge!
+  #conf = dict(dfltConf, **projConf) # takes dflt conf and overwrites things in common
+  
+  print 'dflt: ', dfltConf['gce']
+  print 'proj: ', projConf['gce']
+  print 'merge:', yaml_merge(projConf,dfltConf)['gce']
+  #print ' - GCE:  ', conf['gce']
+  #print ' - Proj: ', conf['project']
+  #print 'Project: ', conf['project']['name']
+  create_machine(conf['gce'])
+  test_machine(conf['gce'])
 
 
 def main():
@@ -37,15 +62,8 @@ def main():
   debug = False
   github_user = 'palladius'
   project = ''
-
-  #print getopt.getopt(['-a', '-bval', '-c', 'val'], 'ab:c:')
   print 'argv (before): ', sys.argv
-  options, depured_argv = getopt.getopt(sys.argv[1:], 'g:vd', ['githubuser=', 
-                                                         'verbose',
-                                                         'debug',
-                                                         ])
-  #print 'OPTIONS   :', options
-  
+  options, depured_argv = getopt.getopt(sys.argv[1:], 'g:vd', ['githubuser=', 'verbose','debug', ])
   for opt, arg in options:
       if opt in ('-g', '--github-user'):
           github_user = arg

@@ -1,7 +1,8 @@
+# My particular dns.palladius.eu project
 gce:
   project:  biglamp
   hostname: denise-ng
-  network: example-not-standard
+  #network: example-not-standard
 project:
  name: denise.palladius.eu
  description: my personal public DNS
@@ -9,3 +10,4 @@ project:
  source: here
  destination: denise.google.palladius.eu
  #init.script: boot.sh
+foo: bar
