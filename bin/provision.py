@@ -14,6 +14,9 @@ import yaml
 def create_machine(opts):
   print 'Creating a machine. Options: ', opts
   
+def test_machine(opts):
+  '''Have to retrieve machine info from gcutil.. like gcutil'''
+  pass
   
 def gce_provision(project):
   print 'Trying to provision project:' , project
@@ -24,6 +27,7 @@ def gce_provision(project):
   print ' - GCE:  ', dataMap['gce']
   print ' - Proj: ', dataMap['project']
   create_machine(dataMap['gce'])
+  test_machine(dataMap['gce'])
 
 
 

@@ -1,0 +1,5 @@
+# this contains a YML of default info
+gce:
+  project:  jeffsilverman
+  hostname: please-change-me
+  network:  default
