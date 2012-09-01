@@ -1,0 +1,3 @@
+[submodule "projects/gceproject-dns.palladius.eu"]
+	path = projects/gceproject-dns.palladius.eu
+	url = git@github.com:palladius/gceproject-dns.palladius.eu.git

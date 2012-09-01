@@ -1,7 +1,0 @@
-project:
- name: denise.palladius.eu
- description: my personal public DNS
- type: dns
- source: here
- destination: denise.google.palladius.eu
- #init.script: boot.sh
