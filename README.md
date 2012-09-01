@@ -1,7 +1,8 @@
 openprojects
 ============
 
-Trying to create a common pattern for my projects, lets see what I come out with
+Trying to create a common pattern for my GCE projects, lets see what I come out 
+with.
 
 
 The idea is to be able to autoprivision these packages based on PUBLIC sources 
