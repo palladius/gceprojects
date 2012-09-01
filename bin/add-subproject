@@ -2,5 +2,5 @@
 
 PROJECT=${1:-_SUBPROJECTNAME_}
 
-echodo git submodule add git@github.com:palladius/gceproject-$PROJECT.git projects/gceproject-$PROJECT
+echodo git submodule add git@github.com:palladius/gceproject-$PROJECT.git submodules/gceproject-$PROJECT
 

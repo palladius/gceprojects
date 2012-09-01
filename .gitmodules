@@ -4,3 +4,6 @@
 [submodule "submodules/gceproject-wiki.palladius.eu"]
 	path = submodules/gceproject-wiki.palladius.eu
 	url = git@github.com:palladius/gceproject-wiki.palladius.eu.git
+[submodule "submodules/riclife"]
+	path = submodules/riclife
+	url = git@github.com:palladius/riclife.git
