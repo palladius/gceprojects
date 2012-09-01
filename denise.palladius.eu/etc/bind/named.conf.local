@@ -18,10 +18,10 @@ zone "hamachi.palladius.eu" {
         file "/etc/bind/zones/hamachi.palladius.eu";
         };
 
-zone "heanet.palladius.eu" {
-        type master;
-        file "/etc/bind/zones/heanet.palladius.eu";
-};
+#zone "heanet.palladius.eu" {
+#        type master;
+#        file "/etc/bind/zones/heanet.palladius.eu";
+#};
 
 zone "dundrum.palladius.eu" {
         type master;

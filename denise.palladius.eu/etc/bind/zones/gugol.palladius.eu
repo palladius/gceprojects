@@ -1,6 +1,6 @@
 $TTL 86400
 @  IN   SOA  ns.palladius.eu. hostmaster.palladius.eu. (
-	2012081500
+	2012090100
 	7200 ; refresh (was 86400)
 	3600 ; retry
  	2419200 ; expire        
@@ -15,14 +15,35 @@ bernadine        IN      A       108.59.80.225
 derek            IN      A       192.168.108.12
 gricchione       IN      A       192.168.108.13
 
-;mail                     IN      MX     10       mta.palladius.eu.
-sobenme          IN    A       192.168.108.18
+mail             IN      MX      10       mta.palladius.eu.
+mail             IN      MX      20       mallory.google.palladius.eu.
+sobenme          IN      A       192.168.108.18
 
 nagios           IN    CNAME   nadine
+mail             IN    CNAME   mallory
 nagios2          IN    CNAME   bernadine
+ftp              IN    CNAME   fatima
+hamachi          IN    CNAME   roberta
+dns              IN    CNAME   denise
+wiki             IN    CNAME   vicky
 
 test             IN    A       1.2.3.4
 www              IN    A       108.59.83.182
+mallory          IN    A       1.2.3.4
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Sakura stuff
+; denise.c.sakura.google.com.internal
+denise                  IN    CNAME   sakura-denise
+vicky                   IN    CNAME   sakura-vicky
+fatima                  IN    CNAME   sakura-fatima
+roberta                 IN    CNAME   sakura-roberta
+sakura-denise           IN    A       108.59.95.93
+sakura-fatima           IN    A       173.255.120.163
+sakura-roberta          IN    A       173.255.120.163
+sakura-vicky            IN    A       173.255.116.167
+
+
 
 ; http://support.google.com/a/bin/answer.py?hl=en&answer=178723
 provaspf         IN    TXT     "v=spf1 include:_spf.google.com ~all"
