@@ -1,17 +1,19 @@
-# My particular dns.palladius.eu project
+#############################
+# dns.palladius.eu project  #
+#############################
 gce:
   project:  biglamp
   hostname: denise-ng
   tags:
   - dns
   - prod
-  - 1
-  - 3
+  metadata:
+    startup-script: 'projects/dns.palladius.eu/first-boot.sh'
 project:
  name: denise.palladius.eu
  description: my personal public DNS
  type: dns
  source: here
  destination: denise.google.palladius.eu
- #init.script: boot.sh
-foo: bar
+private:
+  foo: bar

@@ -1,16 +1,34 @@
 #!/usr/bin/python
 
-'''Usage: provision [-hdv] <project name>'''
+'''Usage: provision [-hdv] <project name>
+
+
+
+
+
+GCutil test:
+
+gcutil addinstance hostname 
+  --project_id=google.com:jeffsilverman 
+  --description='[jeffsilverman.py] Jeff bug see b://7087193 :"gsutil was installed incorrectly"'   
+  --tags='ric,py,v103,ric,py,v103,ric,py,v103,ric,py,v103,ric,py,v103'   
+  --zone='us-east1-a'   
+  --machine_type='n1-standard-1'   
+  --metadata_from_file=startup-script:./projects/riclib/scripts/common-startup-script.sh   
+  --metadata=startup-metadata:project:jeffsilverman:e=py^2   
+  --metadata=author:$USER   
+
+
+'''
 
 import sys
 import getopt
 import yaml
 import copy
+import os
 
-#def load_conffile(project):
-#  f = open('project.yml')
-#  dataMap = yaml.load(f)
-#  f.close()
+debug = False
+verbose = False
 
 def yaml_load(filename):
   f = open(filename)
@@ -22,8 +40,22 @@ def create_machine(opts):
   '''This calls gcutil to add an instance :)'''
   print '- Creating a machine. Options: ', opts
   project_base = opts['project-base']
-  command = 'gcutil --project_id=%s:%s ' % (opts['project-base'],opts['project'])
+  command = '''gcutil \
+    --project_id="%s:%s" \
+    addinstance %s \
+    --tags="%s"\
+    --zone=%s \
+    --machine_type=%s \
+    --metadata_from_file=startup-script:%s \
+    ''' % (opts['project-base'],opts['project'],opts['hostname'],
+           ','.join(opts['tags']),
+           opts['zone'],
+           opts['machine-type'],
+           opts['metadata']['startup-script'],
+        )
+  # TODO do a for cycle for all metadata :)
   print 'command: ', command
+  os.system(command)
   
 def test_machine(conf):
   '''Have to retrieve machine info from gcutil.. like gcutil listinstance.
@@ -45,6 +77,7 @@ def yaml_merge(user, default):
     return user
   
 def gce_provision(project):
+  global debug
   print '= Provisioning:' , project, '='
   # loading conf from yaml
   dfltConf = yaml_load('projects/_common/project.yml')
@@ -53,10 +86,12 @@ def gce_provision(project):
   # super cool but shallow merge!
   #conf = dict(dfltConf, **projConf) # takes dflt conf and overwrites things in common
   conf = yaml_merge(copy.deepcopy(projConf),dfltConf)
-  print 'dflt: ', dfltConf['gce']
-  print 'proj: ', projConf['gce']
-  print 'merge:', conf['gce']
-  #print ' - GCE:  ', conf['gce']
+  print 'Project: ', conf['project']['name']
+  if debug:
+    print 'dflt: ', dfltConf['gce']
+    print 'proj: ', projConf['gce']
+    print 'merge:', conf['gce']
+  print ' - all:  ', conf
   #print ' - Proj: ', conf['project']
   #print 'Project: ', conf['project']['name']
   create_machine(conf['gce'])
@@ -64,9 +99,9 @@ def gce_provision(project):
 
 
 def main():
+  global debug
+  global verbose
   version = '1.0'
-  verbose = False
-  debug = False
   github_user = 'palladius'
   project = ''
   print 'argv (before): ', sys.argv

@@ -1,4 +1,4 @@
-openprojects
+GCE Projects
 ============
 
 Trying to create a common pattern for my GCE projects, lets see what I come out 
@@ -15,4 +15,6 @@ to deploy everything automagically, possibly on Google Compute Engine.
 Thanks
 ======
 
-My mum, as usual.
+My mum, as usual, who made me who I am :)
+
+* https://developers.google.com/compute/

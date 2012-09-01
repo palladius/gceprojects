@@ -6,11 +6,19 @@
 ##############################################
 gce:
   project:  YOUR_PROJECT_IS_MANDATORY
-  hostname: tmp-changeme
+  hostname: YOUR_HOSTNAME
+  init-script: boot.sh
   network:  default
   project-base: google.com
+  zone: us-east1-a   
+  machine-type: n1-standard-1   
   tags:
   - dflt
-  - 1
-  - 2
+  metadata:
+    ric-description: I am a default metadata description common to all Riccardo projects
+    description: feel free to change this instead
+    startup-script-FIXIT: projects/__PROJECT__/first-boot.sh
 foo: baz
+project:
+  name: _MANDATORY_
+  description: Put your description here...
