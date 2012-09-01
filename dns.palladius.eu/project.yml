@@ -3,4 +3,4 @@ project:
  description: my personal public DNS
  type: dns
  source: here
- destination: denise.google.psalladius.eu
+ destination: denise.google.palladius.eu
