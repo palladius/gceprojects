@@ -1,0 +1,25 @@
+#############################
+# mail.palladius.eu project #
+#############################
+gce:
+  project:  biglamp
+  hostname: mail
+  tags:
+  - mail
+  - prod
+#  metadata:
+#    startup-script: 'projects/{{project}}/first-boot.sh'
+project:
+ name: mail.palladius.eu
+ description: my second mail server in Google
+ type: mail
+# TODO implement it
+gcutil:
+  firewall:
+    name: allow-mail
+    allowed: 
+    - tcp:25
+    - tcp:110
+    - tcp:143    
+    - tcp:ssmtp # 465
+    
