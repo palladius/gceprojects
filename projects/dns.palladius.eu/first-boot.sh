@@ -1,8 +1,10 @@
 #!/bin/sh
 
+VERSION=1.3
+
 # on Ubuntu
 
-apt-get install -y bind9 git
+apt-get install -y bind9 git apache2
 
 git clone 
 # cloning the repo into /etc/bind/, found here:
@@ -19,5 +21,14 @@ cd /etc/bind/
 git reset --hard HEAD 
 
 service bind9 reload
-
 # should have bind up and running
+
+# cron, taken from github (brittle as it can move!)
+curl https://raw.github.com/palladius/gceprojects/master/projects/dns.palladius.eu/files/etc/cron.d/pull-dns-and-reload-if-good > /etc/cron.d/pull-dns-and-reload-if-good
+
+(
+echo status: still have to add cron file
+echo bind-palladius-conf-version: `cat /etc/bind/VERSION` 
+echo boot-script-version: $VERSION
+) >> /var/www/gce-data.yml
+

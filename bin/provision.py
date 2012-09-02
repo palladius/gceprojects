@@ -25,6 +25,8 @@ import yaml
 import copy
 import os
 import subprocess
+import tempfile
+
 
 
 debug = False
@@ -47,11 +49,12 @@ def usage():
   print " Available projects: ", ' '.join(project_list.split('\n')) 
   exit(1)
 
-def create_machine(opts):
+# project is within openprojects (like 'www.palladius.eu' its NOT the gce-project (i.e. sakura)
+def create_machine(project, opts):
   '''This calls gcutil to add an instance :)'''
   global machine
   print '- Creating a machine. Options: ', opts
-  project_base = opts['project-base']
+  #project_base = opts['project-base']
   command = '''gcutil \
     --project_id="%s:%s" \
     addinstance %s \
@@ -73,11 +76,15 @@ def create_machine(opts):
   machine['ip'] = machine_ip
   machine['hostname'] = opts['hostname']
   
-def test_machine(conf):
+def test_machine(project, conf):
   '''Have to retrieve machine info from gcutil.. like gcutil listinstance.
   Hostname is already available in opts'''
   print 'TODO: Running tests substituting __HOSTNAME__ with: ', conf['hostname']
-  pass
+  #create tmpfile
+  f = tempfile.NamedTemporaryFile()
+  for tempf in [ 'projects/_common/first-boot.sh', 'projects/%s/first-boot.sh' % project ]:
+    f.write(tempf.read())
+  print 'File is in: ', f.name
 
 # deep merge of configuration trees! Yay!
 def yaml_merge(user, default):
@@ -108,11 +115,9 @@ def gce_provision(project):
     print 'proj: ', projConf['gce']
     print 'merge:', conf['gce']
   print ' - all:  ', conf
-  #print ' - Proj: ', conf['project']
-  #print 'Project: ', conf['project']['name']
-  create_machine(conf['gce'])
+  create_machine(project, conf['gce'])
   print 'Machine important stuff: ', machine
-  test_machine(conf['gce'])
+  test_machine(project,conf['gce'])
 
 
 def main():
