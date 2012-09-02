@@ -1,0 +1,26 @@
+#############################
+# dns.palladius.eu project  #
+#############################
+gce:
+  project:  biglamp
+  hostname: gwww-palladius
+  tags:
+  - www
+  - prod
+#  metadata:
+#    startup-script: 'projects/{{project}}/first-boot.sh'
+project:
+ name: gwww.palladius.it
+ description: my personal website has gone Google!
+ type: www
+ #source: TODO
+ #destination: denise.google.palladius.eu
+private:
+  admin-pwd: TODO
+# TODO implement it
+gcutil:
+  firewall:
+    name: allow-www
+    allowed: 
+    - tcp:80
+    - tcp:80

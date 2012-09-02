@@ -44,7 +44,7 @@ def usage():
   #print " Tip: find project names under projects/"
   #project_list = os.system()
   project_list = subprocess.Popen('ls projects/ | egrep -v ^_', shell=True,stdout=subprocess.PIPE).communicate()[0]
-  print " Available projects: ", ', '.join(project_list.split('\n')) 
+  print " Available projects: ", ' '.join(project_list.split('\n')) 
   exit(1)
 
 def create_machine(opts):
