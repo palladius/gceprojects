@@ -17,7 +17,9 @@ gce:
   metadata:
     ric-description: I am a default metadata description common to all Riccardo projects
     description: feel free to change this instead
-    startup-script-FIXIT: projects/__PROJECT__/first-boot.sh
+    startup-script: 'projects/{{project}}/first-boot.sh'
+    common: io all
+    project: '{{project}}'
 foo: baz
 project:
   name: _MANDATORY_

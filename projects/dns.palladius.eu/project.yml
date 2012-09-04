@@ -7,8 +7,8 @@ gce:
   tags:
   - dns
   - prod43
-  metadata:
-    startup-script: 'projects/dns.palladius.eu/first-boot.sh'
+  #metadata:
+  #  startup-script: 'projects/dns.palladius.eu/first-boot.sh'
 project:
  name: denise.palladius.eu
  description: my personal public DNS
