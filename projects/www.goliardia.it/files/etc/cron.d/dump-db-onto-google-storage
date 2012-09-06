@@ -1,0 +1,4 @@
+
+export PATH=$PATH:~riccardo/gsutil/
+# backup this onto GStorage
+3 3 * * *   root mysqldump -u goliardia -p{{mysql_password}} goliardia_prod | gsutil cp - gs://rcarlesso/openprojects/www.goliardia.it/backup/db-goliardia_prod-$HOSTNAME-$(date +"%Y%m%d-%H%M%S").sql
