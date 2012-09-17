@@ -2,13 +2,15 @@
 # this is common to all machines
 #
 # TODO: run before the other
+#
+# IS THIS USED AT ALL? I DONT THINK SO
 ###############################################################################
 
 #set -e
 # get project from metadata :)
 touch gce-openproject-common-begin.touch
 apt-get update
-apt-get install apache2
+apt-get install -y apache2
 
 # yml file for conf
 (

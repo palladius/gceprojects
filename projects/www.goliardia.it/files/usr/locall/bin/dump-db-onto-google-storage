@@ -1,5 +1,7 @@
 #!/bin/sh
 PATH=$PATH:/home/riccardo/gsutil/
 
+set -x
+
 mysqldump -u {{db_user}} -p{{db_password}} {{db_name}} | 
   gsutil cp - gs://rcarlesso/openprojects/www.goliardia.it/backup/db/$HOSTNAME-{{db_name}}-`date +"%Y%m%d-%H%M%S"`.sql
