@@ -1,0 +1,8 @@
+
+Error message:
+Sorry, you must have /var/www/riclife/config/smtp_gmail.yml
+Exception class:
+RuntimeError
+Application root:
+/var/www/riclife
+
